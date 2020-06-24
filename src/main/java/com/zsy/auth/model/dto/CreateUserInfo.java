@@ -1,13 +1,12 @@
-package com.zsy.auth.model.entity;
+package com.zsy.auth.model.dto;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 @Data
-public class User implements Serializable {
-    private Integer userId;
+public class CreateUserInfo {
+    private int userId;
     private String userName;
+    private String password;
     private String nickName;
     private String email;
     private String sex;

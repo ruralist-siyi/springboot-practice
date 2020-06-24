@@ -1,6 +1,7 @@
 package com.zsy.auth.service.impl;
 
 import com.zsy.auth.mapper.UserMapper;
+import com.zsy.auth.model.dto.CreateUserInfo;
 import com.zsy.auth.model.entity.User;
 import com.zsy.auth.service.UserService;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(Integer id) {
         return UserMapper.findById(id);
+    }
+
+    @Override
+    public CreateUserInfo createUser(CreateUserInfo user) {
+        int id = UserMapper.createUser(user);
+        user.setUserId(id);
+        return user;
     }
 }

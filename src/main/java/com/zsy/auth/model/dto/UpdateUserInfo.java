@@ -3,7 +3,7 @@ package com.zsy.auth.model.dto;
 import lombok.Data;
 
 @Data
-public class CreateUserInfo {
+public class UpdateUserInfo {
     private Integer userId;
     private String userName;
     private String password;

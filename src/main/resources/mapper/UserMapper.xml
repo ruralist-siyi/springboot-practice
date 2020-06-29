@@ -7,4 +7,18 @@
     <insert id="createUser" useGeneratedKeys="true" keyProperty="userId">
         INSERT into user(user_id,password,user_name,email,nick_name,sex) values(#{userId}, #{password}, #{userName}, #{email}, #{nickName}, #{sex})
     </insert>
+    <delete id="deleteUser">
+        DELETE from user where user_id = #{id}
+    </delete>
+    <update id="updateUser">
+        UPDATE user
+        <set>
+            <if test="password != null and password != ''">password=#{password},</if>
+            <if test="userName != null and userName != ''">user_name=#{userName},</if>
+            <if test="email != null and email != ''">email=#{email},</if>
+            <if test="nickName != null and nickName != ''">nick_name=#{nickName},</if>
+            <if test="sex != null and sex != ''">sex=#{sex}</if>
+        </set>
+        where user_id=#{userId}
+    </update>
 </mapper>
